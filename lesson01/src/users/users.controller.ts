@@ -8,20 +8,15 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-  /*
-     GET/users
-     GET/users/:id
-     POST/users
-     PATCH/users/:id
-     DELETE/users/:id
-     */
+  constructor(private readonly usersService: UsersService) {}
   @Get()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  findAll(@Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
-    return [];
+  findAll(@Query('role') role?: 'intern' | 'engineer' | 'admin') {
+    return this.usersService.findAll(role); 
   }
   @Get(':id')
   findOne(@Param('id') id: string) {
