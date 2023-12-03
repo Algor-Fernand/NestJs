@@ -16,23 +16,33 @@ export class UsersController {
   @Get()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   findAll(@Query('role') role?: 'intern' | 'engineer' | 'admin') {
-    return this.usersService.findAll(role); 
+    return this.usersService.findAll(role);
   }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return { id };
+    return this.usersService.findOne(+id);
   }
+
   @Post()
-  create(@Body() user: object) {
-    return user;
+  create(
+    @Body()
+    user: {
+      name: string;
+      email: string;
+      role: 'intern' | 'engineer' | 'admin';
+    },
+  ) {
+    return this.usersService.create(user);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() userUpdate: object) {
     return { id, ...userUpdate };
   }
+
   @Delete(':id')
   delete(@Param('id') id: string) {
-    return { id };
+    return this.usersService.delete(+id);
   }
 }
