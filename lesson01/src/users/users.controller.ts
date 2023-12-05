@@ -21,7 +21,6 @@ export class UsersController {
   findAll(@Query('role') role?: 'intern' | 'engineer' | 'admin') {
     return this.usersService.findAll(role);
   }
-  
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.usersService.findOne(id);
