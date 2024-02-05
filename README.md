@@ -1,6 +1,6 @@
 # NESTJS
 
-This repository will be used for learning purpose, read me in each lesson direcrory contain a summary of what I learnt through that particular lesson. 
+This repository will be used for learning purposes, read me in each lesson directory containing a summary of what I learned through that particular lesson. 
 <Happy coding/> 🤗
 
 ## TECH STACK
